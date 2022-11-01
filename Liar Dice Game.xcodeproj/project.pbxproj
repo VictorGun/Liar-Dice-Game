@@ -11,6 +11,8 @@
 		4054D5CD290C234700B0712F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054D5CC290C234700B0712F /* ContentView.swift */; };
 		4054D5CF290C234700B0712F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4054D5CE290C234700B0712F /* Assets.xcassets */; };
 		4054D5D2290C234700B0712F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4054D5D1290C234700B0712F /* Preview Assets.xcassets */; };
+		6E1F41F22910145300DF1C88 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F41F12910145300DF1C88 /* DiceView.swift */; };
+		6EBD53082911643C008189C6 /* Dice Images in Resources */ = {isa = PBXBuildFile; fileRef = 6EBD53072911643C008189C6 /* Dice Images */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		4054D5CC290C234700B0712F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4054D5CE290C234700B0712F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4054D5D1290C234700B0712F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6E1F41F12910145300DF1C88 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		6EBD53072911643C008189C6 /* Dice Images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Dice Images"; path = "../../../../Downloads/Dice Images"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			children = (
 				4054D5CA290C234700B0712F /* Liar_Dice_GameApp.swift */,
 				4054D5CC290C234700B0712F /* ContentView.swift */,
+				6E1F41F12910145300DF1C88 /* DiceView.swift */,
 				4054D5CE290C234700B0712F /* Assets.xcassets */,
+				6EBD53072911643C008189C6 /* Dice Images */,
 				4054D5D0290C234700B0712F /* Preview Content */,
 			);
 			path = "Liar Dice Game";
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4054D5D2290C234700B0712F /* Preview Assets.xcassets in Resources */,
+				6EBD53082911643C008189C6 /* Dice Images in Resources */,
 				4054D5CF290C234700B0712F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4054D5CD290C234700B0712F /* ContentView.swift in Sources */,
+				6E1F41F22910145300DF1C88 /* DiceView.swift in Sources */,
 				4054D5CB290C234700B0712F /* Liar_Dice_GameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
