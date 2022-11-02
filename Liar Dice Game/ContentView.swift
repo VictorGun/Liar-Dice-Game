@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         NavigationView {
+            
             VStack {
+                
                 Spacer()
                 Text("Liars Dice Game:" )
                     .padding(1)
@@ -33,6 +36,17 @@ struct ContentView: View {
                Spacer()
             }
         }
+      // GeometryReader { geo in
+            //ZStack {
+               // Image("DiceBackground")
+                   // .resizable()
+                   // .scaledToFit()
+                    //.edgesIgnoringSafeArea(.all)
+                    //.frame(width: geo.size.width, height: geo.size.height,alignment: .center)
+                   // .opacity(1.0)
+         //   }
+      //  }
+        // This is for inserting a background. Not sure about how to put it in background without removing the text already there
     }
 }
 
