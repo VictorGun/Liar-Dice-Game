@@ -9,13 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Spacer()
+                Text("Liars Dice Game:" )
+                    .padding(1)
+                    .font(Font.custom("impact", size: 40))
+                    .preferredColorScheme(.dark)
+                Spacer()
+                NavigationLink(destination: DiceView()) {
+                    Label("SINGLE PLAYER", systemImage: "arrowtriangle.right.fill")
+                        .font(Font.custom("impact", size: 20))
+                }
+                .padding(50)
+                NavigationLink(destination: DiceMultiplayerView()) {
+                    Label("MULTIPLAYER", systemImage: "arrowtriangle.right.fill")
+                        .font(Font.custom("impact", size: 20))
+                }
+                .padding(50)
+                NavigationLink(destination: InstructionsView()) {
+                    Text("Instructions")
+                }.padding(20).font(Font.custom("impact", size: 20))
+               Spacer()
+            }
         }
-        .padding()
     }
 }
 
