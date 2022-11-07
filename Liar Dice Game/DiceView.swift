@@ -13,7 +13,7 @@ struct DiceView: View {
     var body: some View {
         Image("pips \(randomValue)")
             .resizable()
-            .frame(width: 200, height: 200, alignment: .center)
+            .frame(width: 100, height: 100, alignment: .center)
             .rotationEffect(.degrees(rotation))
             .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
             .onTapGesture {

@@ -17,7 +17,7 @@ struct ContentView: View {
                     .font(Font.custom("impact", size: 40))
                     .preferredColorScheme(.dark)
                 Spacer()
-                NavigationLink(destination: DiceView()) {
+                NavigationLink(destination: DiceSingleplayerView()) {
                     Label("SINGLE PLAYER", systemImage: "arrowtriangle.right.fill")
                         .font(Font.custom("impact", size: 20))
                 }

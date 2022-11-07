@@ -14,6 +14,7 @@
 		4054D5D92912B96800B0712F /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054D5D82912B96800B0712F /* InstructionsView.swift */; };
 		4054D5DB2912BAFF00B0712F /* DiceMultiplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054D5DA2912BAFF00B0712F /* DiceMultiplayerView.swift */; };
 		6E1F41F22910145300DF1C88 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F41F12910145300DF1C88 /* DiceView.swift */; };
+		6E4AFC0429195BFA00B11202 /* DiceSingleplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4AFC0329195BFA00B11202 /* DiceSingleplayerView.swift */; };
 		6EBD53082911643C008189C6 /* Dice Images in Resources */ = {isa = PBXBuildFile; fileRef = 6EBD53072911643C008189C6 /* Dice Images */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		4054D5D82912B96800B0712F /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		4054D5DA2912BAFF00B0712F /* DiceMultiplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceMultiplayerView.swift; sourceTree = "<group>"; };
 		6E1F41F12910145300DF1C88 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		6E4AFC0329195BFA00B11202 /* DiceSingleplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSingleplayerView.swift; sourceTree = "<group>"; };
 		6EBD53072911643C008189C6 /* Dice Images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Dice Images"; path = "../../../../Downloads/Dice Images"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				4054D5CC290C234700B0712F /* ContentView.swift */,
 				4054D5D82912B96800B0712F /* InstructionsView.swift */,
 				6E1F41F12910145300DF1C88 /* DiceView.swift */,
+				6E4AFC0329195BFA00B11202 /* DiceSingleplayerView.swift */,
 				4054D5DA2912BAFF00B0712F /* DiceMultiplayerView.swift */,
 				4054D5CE290C234700B0712F /* Assets.xcassets */,
 				6EBD53072911643C008189C6 /* Dice Images */,
@@ -154,6 +157,7 @@
 				4054D5DB2912BAFF00B0712F /* DiceMultiplayerView.swift in Sources */,
 				4054D5D92912B96800B0712F /* InstructionsView.swift in Sources */,
 				6E1F41F22910145300DF1C88 /* DiceView.swift in Sources */,
+				6E4AFC0429195BFA00B11202 /* DiceSingleplayerView.swift in Sources */,
 				4054D5CB290C234700B0712F /* Liar_Dice_GameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
