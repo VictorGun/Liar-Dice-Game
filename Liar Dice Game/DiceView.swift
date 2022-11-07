@@ -11,11 +11,42 @@ struct DiceView: View {
     @State private var randomValue = 0
     @State private var rotation = 0.0
     var body: some View {
-        Image("pips \(randomValue)")
-            .resizable()
-            .frame(width: 100, height: 100, alignment: .center)
-            .rotationEffect(.degrees(rotation))
-            .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
+        VStack{
+            HStack {
+                Image("pips \(randomValue)")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .rotationEffect(.degrees(rotation))
+                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
+                Image("pips \(randomValue)")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .rotationEffect(.degrees(rotation))
+                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
+                Image("pips \(randomValue)")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .rotationEffect(.degrees(rotation))
+                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
+            }
+            HStack {
+                Image("pips \(randomValue)")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .rotationEffect(.degrees(rotation))
+                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
+                Image("pips \(randomValue)")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .rotationEffect(.degrees(rotation))
+                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
+                Image("pips \(randomValue)")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .rotationEffect(.degrees(rotation))
+                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
+            }
+        }
             .onTapGesture {
                 chooseRandom(times: 6)
                 withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
