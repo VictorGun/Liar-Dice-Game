@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct DiceView: View {
-    @State private var randomValue = 0
-    @State private var rotation = 0.0
+    @Binding public var score:Int
+    @State public var randomValue = 0
+    @State public var rotation = 0.0
     var body: some View {
         VStack{
             HStack {
@@ -52,21 +53,38 @@ struct DiceView: View {
                 withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
                     rotation += 360
                 }
+                
             }
     }
     func chooseRandom(times:Int) {
         if times > 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                         randomValue = Int.random(in: 1...6)
+                if(times == 1) {
+                    score += randomValue
+                }
                         chooseRandom(times: times - 1)
                     }
                 }
         }
 }
 
+
+struct otherView: View {
+    @State var figures = 12
+    
+    
+    var body: some View {
+        VStack {
+            Text("\(figures)")
+            DiceView(score: $figures)
+        }
+    }
+}
+
 struct DiceView_Previews: PreviewProvider {
-    static var previews: some View {
-        DiceView()
+        static var previews: some View {
+            otherView()
     }
 }
 

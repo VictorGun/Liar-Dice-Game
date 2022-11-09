@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct DiceSingleplayerView: View {
+    @State private var total = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("\(total)")
+            HStack {
+                DiceView(score: $total)
+                DiceView(score: $total)
+            }
+        }
     }
 }
 
