@@ -11,11 +11,19 @@ struct DiceSingleplayerView: View {
     @State private var total = 0
     var body: some View {
         VStack {
-            Text("\(total)")
+            Spacer()
             HStack {
                 DiceView(score: $total)
                 DiceView(score: $total)
             }
+            Spacer()
+            HStack {
+                Text("\(total)")
+                    Spacer()
+                Text("\(total)")
+            }
+                
+            
         }
     }
 }
