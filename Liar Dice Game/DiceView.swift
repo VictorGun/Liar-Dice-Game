@@ -13,60 +13,33 @@ struct DiceView: View {
     @State public var rotation = 0.0
     var body: some View {
         VStack{
-            HStack {
-                Image("pips \(randomValue)")
-                    .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .rotationEffect(.degrees(rotation))
-                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
-                Image("pips \(randomValue)")
-                    .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .rotationEffect(.degrees(rotation))
-                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
-                Image("pips \(randomValue)")
-                    .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .rotationEffect(.degrees(rotation))
-                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
-            }
-            HStack {
-                Image("pips \(randomValue)")
-                    .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .rotationEffect(.degrees(rotation))
-                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
-                Image("pips \(randomValue)")
-                    .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .rotationEffect(.degrees(rotation))
-                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
-                Image("pips \(randomValue)")
-                    .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .rotationEffect(.degrees(rotation))
-                    .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
-            }
+            
+            Image("pips \(randomValue)")
+                .resizable()
+                .frame(width: 100, height: 100, alignment: .center)
+                .rotationEffect(.degrees(rotation))
+                .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
         }
-            .onTapGesture {
-                chooseRandom(times: 6)
-                withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
-                    rotation += 360
-                }
-                
+        
+        .onTapGesture {
+            chooseRandom(times: 6)
+            withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
+                rotation += 360
             }
+            
+        }
     }
     func chooseRandom(times:Int) {
         if times > 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        randomValue = Int.random(in: 1...6)
+                randomValue = Int.random(in: 1...6)
                 if(times == 1) {
                     score += randomValue
                 }
-                        chooseRandom(times: times - 1)
-                    }
-                }
+                chooseRandom(times: times - 1)
+            }
         }
+    }
 }
 
 
@@ -83,8 +56,8 @@ struct otherView: View {
 }
 
 struct DiceView_Previews: PreviewProvider {
-        static var previews: some View {
-            otherView()
+    static var previews: some View {
+        otherView()
     }
 }
 
