@@ -11,8 +11,8 @@ struct DiceView: View {
     @Binding public var score:Int
     @State public var randomValue = 0
     @State public var rotation = 0.0
-    @State public var odd = ["pips 1","pips 3", "pips 5"]
-    @State public var even = ["pips 2","pips 4", "pips 6"]
+    @State public var odd = [1,3,5]
+    @State public var even = [2,4,6]
     
     var body: some View {
         VStack{
@@ -37,8 +37,15 @@ struct DiceView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 randomValue = Int.random(in: 1...6)
                 if(times == 1) {
-                    score -= randomValue
+                    if odd.contains(where: {$0 == randomValue}) {
+                        score -= randomValue
+                    }
+                    else {
+                        score += randomValue
+                    }
                 }
+                
+                
                 chooseRandom(times: times - 1)
             }
         }
