@@ -16,11 +16,14 @@ struct DiceSingleplayerView: View {
                 DiceView(score: $total)
                 DiceView(score: $total)
             }
+            
             Spacer()
+            Text("YOUR SCORE")
+                .font(Font.custom("impact", size: 20))
+                .padding()
             HStack {
                 Text("\(total)")
-                    Spacer()
-                Text("\(total)")
+                    .font(Font.custom("impact", size: 20))
             }
                 
             
