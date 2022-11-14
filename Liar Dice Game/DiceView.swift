@@ -38,10 +38,10 @@ struct DiceView: View {
                 randomValue = Int.random(in: 1...6)
                 if(times == 1) {
                     if odd.contains(where: {$0 == randomValue}) {
-                        score -= randomValue
+                        score -= randomValue / 2
                     }
                     else {
-                        score += randomValue
+                        score += randomValue / 2
                     }
                 }
                 

@@ -12,28 +12,56 @@ struct DiceSingleplayerView: View {
     @State private var total = 0
     @State private var player: AVAudioPlayer!
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                DiceView(score: $total)
-                DiceView(score: $total)
-            }
-            
-            Spacer()
-            Text("YOUR SCORE")
-                .font(Font.custom("impact", size: 20))
+        NavigationView {
+            VStack {
+                Spacer()
+                HStack {
+                    DiceView(score: $total)
+                    
+                }
                 .padding()
-            HStack {
-                Text("\(total)")
-                    .font(Font.custom("impact", size: 20))
-            }
                 
-            
+                // winning or losing
+                if total >= 20 {
+                    Text("You Won!")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding()
+                    NavigationLink(destination: ContentView()) {
+                        Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
+                            .font(Font.custom("impact", size: 20))
+                    }
+                } else if total <= -2  {
+                    Text("You Lose!")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding()
+                    NavigationLink(destination: ContentView()) {
+                        Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
+                            .font(Font.custom("impact", size: 20))
+                    }
+                }
+                Spacer()
+                Text("YOUR SCORE")
+                    .font(Font.custom("impact", size: 20))
+                    .padding()
+                HStack {
+                    Text("\(total)")
+                        .font(Font.custom("impact", size: 20))
+                }
+                
+                
+            }
+            if total >= 2 {
+                Text("You Won!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                NavigationLink(destination: ContentView()) {
+                    Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
+                        .font(Font.custom("impact", size: 20))
+                }
+            }
         }
-        if total == 50 {
-            
-        }
-            
     }
     
     //stealing the thing from the website
@@ -49,7 +77,7 @@ struct DiceSingleplayerView: View {
             }
         }
     }
-
+    
     //USE OF THE PLAY SOUNDS playSounds("file(no extension)(remove brackets")
 }
 
