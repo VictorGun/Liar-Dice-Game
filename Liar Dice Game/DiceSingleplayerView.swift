@@ -30,6 +30,10 @@ struct DiceSingleplayerView: View {
                 
             
         }
+        if total == 50 {
+            
+        }
+            
     }
     
     //stealing the thing from the website
