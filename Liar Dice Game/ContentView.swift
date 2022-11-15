@@ -18,7 +18,6 @@ struct ContentView: View {
                 Text("Liars Dice Game:" )
                     .padding(1)
                     .font(Font.custom("impact", size: 40))
-                    .preferredColorScheme(.dark)
                 Spacer()
                 NavigationLink(destination: DiceSingleplayerView()) {
                     Label("SINGLE PLAYER", systemImage: "arrowtriangle.right.fill")

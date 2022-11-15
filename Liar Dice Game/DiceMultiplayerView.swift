@@ -9,22 +9,23 @@ import SwiftUI
 import AVFoundation
 
 struct DiceMultiplayerView: View {
-    @State private var total = 0
+    @State private var total1 = 0
+    @State private var total2 = 0
     @State private var player: AVAudioPlayer!
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
                 HStack {
-                    DiceView(score: $total)
+                    DiceView(score: $total1)
                     Spacer()
-                    DiceView(score: $total)
+                    DiceView(score: $total2)
                 }
                 .padding()
                 
                 // winning or losing
-                if total >= 20 {
-                    Text("You Won!")
+                if total1 >= 20 {
+                    Text("Player 1 Won!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
@@ -32,8 +33,8 @@ struct DiceMultiplayerView: View {
                         Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                             .font(Font.custom("impact", size: 20))
                     }
-                } else if total <= -15  {
-                    Text("You Lose!")
+                } else if total1 <= -15  {
+                    Text("Player 1 Lost!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
@@ -53,18 +54,28 @@ struct DiceMultiplayerView: View {
                         .padding()
                 }
                 HStack {
-                    Text("\(total)")
+                    Text("\(total1)")
                         .font(Font.custom("impact", size: 20))
-                        Spacer()
+                    Spacer()
                         .frame(width: 225)
-                    Text("\(total)")
+                    Text("\(total2)")
                         .font(Font.custom("impact", size: 20))
                 }
             }
-            if total >= 2 {
-                Text("You Won!")
+            if total2 >= 20 {
+                Text("Player 2 Won!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                NavigationLink(destination: ContentView()) {
+                    Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
+                        .font(Font.custom("impact", size: 20))
+                }
+            }
+            else if total2 <= -15  {
+                Text("Player 2 Lost!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding()
                 NavigationLink(destination: ContentView()) {
                     Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                         .font(Font.custom("impact", size: 20))
