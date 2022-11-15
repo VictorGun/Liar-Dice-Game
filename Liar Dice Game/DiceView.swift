@@ -14,9 +14,9 @@ struct DiceView: View {
     @State public var rotation = 0.0
     @State public var odd = [1,3,5]
     @State public var even = [2,4,6]
+    @State public var gameRunning = false
+    @State public var gameOver = false
     @State private var player: AVAudioPlayer!
-    
-    var body: some View {
         VStack{
             
             Image("pips \(randomValue)")
@@ -27,13 +27,13 @@ struct DiceView: View {
         }
         
         .onTapGesture {
+            
+                chooseRandom(times: 6)
             playSounds(sound: "DiceRoll")
             chooseRandom(times: 6)
             withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
                 rotation += 360
             }
-            
-        }
     }
     func chooseRandom(times:Int) {
         if times > 0 {

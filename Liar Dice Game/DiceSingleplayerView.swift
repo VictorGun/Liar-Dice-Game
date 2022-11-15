@@ -31,6 +31,7 @@ struct DiceSingleplayerView: View {
                         Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                             .font(Font.custom("impact", size: 20))
                     }
+                    
                 } else if total <= -15  {
                     Text("You Lose!")
                         .font(.largeTitle)
@@ -41,6 +42,7 @@ struct DiceSingleplayerView: View {
                             .font(Font.custom("impact", size: 20))
                     }
                 }
+                
                 Spacer()
                 Text("YOUR SCORE")
                     .font(Font.custom("impact", size: 20))
