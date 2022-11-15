@@ -64,7 +64,7 @@ struct DiceSingleplayerView: View {
         }
     }
     
-    //stealing the thing from the website
+    //stealing the thing from the simon project
     func playSounds(sound: String) {
         if let asset = NSDataAsset(name: sound){
             do {

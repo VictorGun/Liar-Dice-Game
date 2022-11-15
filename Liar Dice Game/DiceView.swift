@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct DiceView: View {
     @Binding public var score:Int
@@ -13,6 +14,7 @@ struct DiceView: View {
     @State public var rotation = 0.0
     @State public var odd = [1,3,5]
     @State public var even = [2,4,6]
+    @State private var player: AVAudioPlayer!
     
     var body: some View {
         VStack{
@@ -25,6 +27,7 @@ struct DiceView: View {
         }
         
         .onTapGesture {
+            playSounds(sound: "DiceRoll")
             chooseRandom(times: 6)
             withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
                 rotation += 360
@@ -50,6 +53,21 @@ struct DiceView: View {
             }
         }
     }
+    //stealing the thing from the simon project
+    func playSounds(sound: String) {
+        if let asset = NSDataAsset(name: sound){
+            do {
+                // Use NSDataAsset's data property to access the audio file stored in Sound.
+                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"wav")
+                // Play the above sound file.
+                player?.play()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    //USE OF THE PLAY SOUNDS playSounds("file(no extension)(remove brackets")
 }
 
 
