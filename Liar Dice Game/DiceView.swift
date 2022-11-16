@@ -17,6 +17,7 @@ struct DiceView: View {
     @State public var gameRunning = false
     @State public var gameOver = false
     @State private var player: AVAudioPlayer!
+    var body: some View {
         VStack{
             
             Image("pips \(randomValue)")
@@ -27,66 +28,67 @@ struct DiceView: View {
         }
         
         .onTapGesture {
-            
+            if (-15 < score && score < 20){
                 chooseRandom(times: 6)
-            playSounds(sound: "DiceRoll")
-            chooseRandom(times: 6)
-            withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
-                rotation += 360
-            }
-    }
-    func chooseRandom(times:Int) {
-        if times > 0 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                randomValue = Int.random(in: 1...6)
-                if(times == 1) {
-                    if odd.contains(where: {$0 == randomValue}) {
-                        score -= randomValue / 2
-                    }
-                    else {
-                        score += randomValue / 2
-                    }
+                playSounds(sound: "DiceRoll")
+                withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
+                    rotation += 360
                 }
-                
-                
-                chooseRandom(times: times - 1)
             }
         }
     }
-    //stealing the thing from the simon project
-    func playSounds(sound: String) {
-        if let asset = NSDataAsset(name: sound){
-            do {
-                // Use NSDataAsset's data property to access the audio file stored in Sound.
-                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"wav")
-                // Play the above sound file.
-                player?.play()
-            } catch let error as NSError {
-                print(error.localizedDescription)
+        func chooseRandom(times:Int) {
+            if times > 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    randomValue = Int.random(in: 1...6)
+                    if(times == 1) {
+                        if odd.contains(where: {$0 == randomValue}) {
+                            score -= randomValue / 2
+                        }
+                        else {
+                            score += randomValue / 2
+                        }
+                    }
+                    
+                    
+                    chooseRandom(times: times - 1)
+                }
+            }
+        }
+        //stealing the thing from the simon project
+        func playSounds(sound: String) {
+            if let asset = NSDataAsset(name: sound){
+                do {
+                    // Use NSDataAsset's data property to access the audio file stored in Sound.
+                    player = try AVAudioPlayer(data:asset.data, fileTypeHint:"wav")
+                    // Play the above sound file.
+                    player?.play()
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+        //USE OF THE PLAY SOUNDS playSounds("file(no extension)(remove brackets")
+    }
+    
+
+    struct otherView: View {
+        @State var figures = 0
+        
+        
+        var body: some View {
+            VStack {
+                Text("\(figures)")
+                DiceView(score: $figures)
             }
         }
     }
-
-    //USE OF THE PLAY SOUNDS playSounds("file(no extension)(remove brackets")
-}
-
-
-struct otherView: View {
-    @State var figures = 12
     
-    
-    var body: some View {
-        VStack {
-            Text("\(figures)")
-            DiceView(score: $figures)
+    struct DiceView_Previews: PreviewProvider {
+        static var previews: some View {
+            otherView()
         }
     }
-}
-
-struct DiceView_Previews: PreviewProvider {
-    static var previews: some View {
-        otherView()
-    }
-}
-
-
+    
+    

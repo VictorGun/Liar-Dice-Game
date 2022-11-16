@@ -33,6 +33,7 @@ struct DiceSingleplayerView: View {
                     }
                     
                 } else if total <= -15  {
+                    
                     Text("You Lose!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
@@ -53,15 +54,6 @@ struct DiceSingleplayerView: View {
                 }
                 
                 
-            }
-            if total >= 2 {
-                Text("You Won!")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                NavigationLink(destination: ContentView()) {
-                    Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
-                        .font(Font.custom("impact", size: 20))
-                }
             }
         }
     }
