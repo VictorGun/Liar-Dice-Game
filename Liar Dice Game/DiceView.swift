@@ -14,7 +14,7 @@ struct DiceView: View {
     @State public var rotation = 0.0
     @State public var odd = [1,3,5]
     @State public var even = [2,4,6]
-    @State public var gameRunning = false
+    @Binding public var gameRunning: Bool
     @State public var gameOver = false
     @State private var player: AVAudioPlayer!
     var body: some View {
@@ -29,10 +29,12 @@ struct DiceView: View {
         
         .onTapGesture {
             if (-15 < score && score < 20){
-                chooseRandom(times: 6)
-                playSounds(sound: "DiceRoll")
-                withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
-                    rotation += 360
+                if gameRunning {
+                    chooseRandom(times: 6)
+                    playSounds(sound: "DiceRoll")
+                    withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
+                        rotation += 360
+                    }
                 }
             }
         }
@@ -75,12 +77,12 @@ struct DiceView: View {
 
     struct otherView: View {
         @State var figures = 0
-        
+        @State var gameIsRunning = false
         
         var body: some View {
             VStack {
                 Text("\(figures)")
-                DiceView(score: $figures)
+                DiceView(score: $figures, gameRunning: $gameIsRunning)
             }
         }
     }

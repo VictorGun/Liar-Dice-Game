@@ -13,6 +13,7 @@ struct DiceMultiplayerView: View {
     @State private var total2 = 0
     @State private var player: AVAudioPlayer!
     @State private var turns = ""
+    @State var gameIsRunning = false
     var body: some View {
         NavigationView {
             VStack {
@@ -23,10 +24,11 @@ struct DiceMultiplayerView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack {
-                    DiceView(score: $total1)
+                    
+                    DiceView(score: $total1, gameRunning: $gameIsRunning)
                     
                     Spacer()
-                    DiceView(score: $total2)
+                    DiceView(score: $total2, gameRunning: $gameIsRunning)
                 }
                 .padding()
                 
