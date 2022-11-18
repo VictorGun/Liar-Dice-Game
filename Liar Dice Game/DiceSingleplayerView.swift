@@ -17,7 +17,6 @@ struct DiceSingleplayerView: View {
                 Spacer()
                 HStack {
                     DiceView(score: $total)
-                    
                 }
                 .padding()
                 
