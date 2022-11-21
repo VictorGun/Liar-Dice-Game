@@ -13,7 +13,7 @@ struct DiceMultiplayerView: View {
     @State private var total2 = 0
     @State private var player: AVAudioPlayer!
     @State private var turns = ""
-    @State var gameIsRunning = false
+    @State var gameIsRunning = true
     var body: some View {
         NavigationView {
             VStack {
@@ -28,7 +28,7 @@ struct DiceMultiplayerView: View {
                     DiceView(score: $total1, gameRunning: $gameIsRunning)
                     
                     Spacer()
-                    DiceView(score: $total2, gameRunning: $gameIsRunning)
+                    DiceView(score: $total2, gameRunning: not($gameIsRunning))
                 }
                 .padding()
                 
@@ -92,6 +92,12 @@ struct DiceMultiplayerView: View {
                 }
             }
         }
+    }
+    func not(_ value: Binding<Bool>) -> Binding<Bool> {
+        Binding<Bool>(
+            get: { !value.wrappedValue },
+            set: { value.wrappedValue = !$0 }
+        )
     }
 }
 

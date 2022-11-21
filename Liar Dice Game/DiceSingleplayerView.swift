@@ -11,13 +11,15 @@ import AVFoundation
 struct DiceSingleplayerView: View {
     @State private var total = 0
     @State private var player: AVAudioPlayer!
-    @State var gameIsRunning = false
+    @State var gameIsRunning = true
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
                 HStack {
-                    DiceView(score: $total, gameRunning: $gameIsRunning)
+                    DiceView(score: $total, gameRunning: $gameIsRunning).onChange(of: gameIsRunning) { _ in
+                        gameIsRunning = true
+                    }
                 }
                 .padding()
                 

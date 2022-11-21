@@ -35,6 +35,8 @@ struct DiceView: View {
                     withAnimation(.interpolatingSpring(stiffness: 10, damping: 2)) {
                         rotation += 360
                     }
+                    gameRunning = false
+                    
                 }
             }
         }
@@ -77,7 +79,7 @@ struct DiceView: View {
 
     struct otherView: View {
         @State var figures = 0
-        @State var gameIsRunning = false
+        @State var gameIsRunning = true
         
         var body: some View {
             VStack {
