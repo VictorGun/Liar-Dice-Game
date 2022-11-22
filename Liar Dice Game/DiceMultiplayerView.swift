@@ -12,22 +12,39 @@ struct DiceMultiplayerView: View {
     @State private var total1 = 0
     @State private var total2 = 0
     @State private var player: AVAudioPlayer!
-    @State private var turns = ""
+    @State private var turns = 1
+    @State private var turnNumber = 0
     @State var gameIsRunning = true
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
-                Text("\(turns)")
+                Text("Player \(turns)'s Turn")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
+                Text("Turn number: \(turnNumber)")
+                    .fontWeight(.bold)
                 Spacer()
                 HStack {
                     DiceView(score: $total1, gameRunning: $gameIsRunning)
+                        .simultaneousGesture(TapGesture().onEnded {
+                            if(turns != 2) {
+                                turnNumber += 1
+                            }
+                            turns = 2
+                            
+                        })
                     
                     Spacer()
                     DiceView(score: $total2, gameRunning: not($gameIsRunning))
+                        .simultaneousGesture(TapGesture().onEnded {
+                            if(turns != 1) {
+                                turnNumber += 1
+                            }
+                            turns = 1
+                            
+                        })
                 }
                 .padding()
                 // winning or losing
