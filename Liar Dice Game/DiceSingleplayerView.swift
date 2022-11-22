@@ -13,7 +13,6 @@ struct DiceSingleplayerView: View {
     @State private var player: AVAudioPlayer!
     @State var gameIsRunning = true
     var body: some View {
-        NavigationView {
             VStack {
                 Spacer()
                 HStack {
@@ -29,17 +28,22 @@ struct DiceSingleplayerView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
+                        .onAppear {
+                           playSounds(sound: "Start")
+                        }
                     NavigationLink(destination: ContentView()) {
                         Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                             .font(Font.custom("impact", size: 20))
                     }
                     
-                } else if total <= -15  {
-                    
+                } else if total <= -15 {
                     Text("You Lose!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
+                        .onAppear {
+                           playSounds(sound: "Lose")
+                        }
                     NavigationLink(destination: ContentView()) {
                         Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                             .font(Font.custom("impact", size: 20))
@@ -57,7 +61,6 @@ struct DiceSingleplayerView: View {
                 
                 
             }
-        }
     }
     
     //stealing the thing from the simon project

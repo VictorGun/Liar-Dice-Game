@@ -16,7 +16,7 @@ struct DiceMultiplayerView: View {
     @State private var turnNumber = 0
     @State var gameIsRunning = true
     var body: some View {
-        NavigationView {
+        
             VStack {
                 Spacer()
                 Text("Player \(turns)'s Turn")
@@ -53,15 +53,22 @@ struct DiceMultiplayerView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
+                        .onAppear {
+                           playSounds(sound: "Start")
+                        }
                     NavigationLink(destination: ContentView()) {
                         Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                             .font(Font.custom("impact", size: 20))
                     }
+                    
                 } else if total1 <= -15  {
                     Text("Player 1 Lost!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
+                        .onAppear {
+                           playSounds(sound: "Lose")
+                        }
                     NavigationLink(destination: ContentView()) {
                         Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                             .font(Font.custom("impact", size: 20))
@@ -90,6 +97,9 @@ struct DiceMultiplayerView: View {
                 Text("Player 2 Won!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .onAppear {
+                       playSounds(sound: "Start")
+                    }
                 NavigationLink(destination: ContentView()) {
                     Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                         .font(Font.custom("impact", size: 20))
@@ -100,18 +110,32 @@ struct DiceMultiplayerView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
+                    .onAppear {
+                       playSounds(sound: "Lose")
+                    }
                 NavigationLink(destination: ContentView()) {
                     Label("Back To Main Menu", systemImage: "arrowtriangle.right.fill")
                         .font(Font.custom("impact", size: 20))
                 }
             }
-        }
     }
     func not(_ value: Binding<Bool>) -> Binding<Bool> {
         Binding<Bool>(
             get: { !value.wrappedValue },
             set: { value.wrappedValue = !$0 }
         )
+    }
+    func playSounds(sound: String) {
+        if let asset = NSDataAsset(name: sound){
+            do {
+                // Use NSDataAsset's data property to access the audio file stored in Sound.
+                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"wav")
+                // Play the above sound file.
+                player?.play()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
