@@ -24,15 +24,12 @@ struct DiceMultiplayerView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack {
-                    
                     DiceView(score: $total1, gameRunning: $gameIsRunning)
                     
                     Spacer()
                     DiceView(score: $total2, gameRunning: not($gameIsRunning))
                 }
                 .padding()
-                
-                
                 // winning or losing
                 if total1 >= 20 {
                     Text("Player 1 Won!")
