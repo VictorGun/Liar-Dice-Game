@@ -13,7 +13,7 @@ struct DiceMultiplayerView: View {
     @State private var total2 = 0
     @State private var player: AVAudioPlayer!
     @State private var turns = ""
-    @State var gameIsRunning = false
+    @State var gameIsRunning = true
     var body: some View {
         NavigationView {
             VStack {
@@ -24,15 +24,12 @@ struct DiceMultiplayerView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack {
-                    
                     DiceView(score: $total1, gameRunning: $gameIsRunning)
                     
                     Spacer()
                     DiceView(score: $total2, gameRunning: $gameIsRunning)
                 }
                 .padding()
-                
-                
                 // winning or losing
                 if total1 >= 20 {
                     Text("Player 1 Won!")
